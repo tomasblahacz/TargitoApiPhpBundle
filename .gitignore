@@ -1,0 +1,8 @@
+/.idea
+/vendor
+/composer.lock
+/.php_cs.cache
+/.php_cs
+/phpstan.neon
+/phpunit.xml
+/.phpunit.result.cache

@@ -1,0 +1,37 @@
+services:
+  targito_api.credentials.default: # defined dynamically inside extension class
+
+  targito_api.credentials.explicit:
+    class: Targito\Api\Credentials\Credentials
+    arguments: # defined dynamically if needed
+      - ''
+      - ''
+
+  targito_api.credentials.environment:
+    class: Targito\Api\Credentials\EnvironmentCredentials
+
+  targito_api.http.default: # defined dynamically inside extension class
+
+  targito_api.http.curl:
+    class: Targito\Api\Http\Request\CurlHttpRequest
+
+  targito_api.http.stream:
+    class: Targito\Api\Http\Request\StreamHttpRequest
+
+  targito_api.api:
+    class: Targito\Api\TargitoApi
+    arguments:
+      - '@targito_api.credentials.default'
+      - '@targito_api.http.default'
+
+  targito_api.endpoint.contacts:
+    class: Targito\Api\Endpoint\TargitoContactEndpoint
+    arguments:
+      - '@targito_api.credentials.default'
+      - '@targito_api.http.default'
+
+  targito_api.endpoint.transact:
+    class: Targito\Api\Endpoint\TargitoTransactEndpoint
+    arguments:
+      - '@targito_api.credentials.default'
+      - '@targito_api.http.default'

@@ -1,0 +1,4 @@
+services:
+  Targito\Api\TargitoApi: '@targito_api.api'
+  Targito\Api\Endpoint\TargitoContactEndpoint: '@targito_api.endpoint.contacts'
+  Targito\Api\Endpoint\TargitoTransactEndpoint: '@targito_api.endpoint.transact'
