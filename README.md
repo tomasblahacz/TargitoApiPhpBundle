@@ -1,5 +1,7 @@
 # Targito API Symfony Bundle for Symfony 4 & 5
 
+[![Build Status](https://github.com/targito/TargitoApiPhpBundle/actions/workflows/test.yaml/badge.svg)](https://github.com/targito/TargitoApiPhpBundle/actions/workflows/test.yaml)
+
 > To see description of the api methods, see the [library description](https://github.com/targito/TargitoApiPhp)
 
 ## Installation
