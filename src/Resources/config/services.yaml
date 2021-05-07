@@ -29,9 +29,13 @@ services:
     arguments:
       - '@targito_api.credentials.default'
       - '@targito_api.http.default'
+    tags:
+      - targito_api.endpoint
 
   targito_api.endpoint.transact:
     class: Targito\Api\Endpoint\TargitoTransactEndpoint
     arguments:
       - '@targito_api.credentials.default'
       - '@targito_api.http.default'
+    tags:
+      - targito_api.endpoint

@@ -7,6 +7,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Targito\Api\TargitoApi;
 
 class TargitoApiExtension extends Extension
 {
@@ -51,5 +52,15 @@ class TargitoApiExtension extends Extension
             $defaultHttpService = extension_loaded('curl') ? 'targito_api.http.curl' : 'targito_api.http.stream';
         }
         $container->setAlias('targito_api.http.default', $defaultHttpService);
+
+        $apiUrl = $configs['api_url'] ?? TargitoApi::API_URL;
+
+        $targitoApiServiceDefinition = $container->getDefinition('targito_api.api');
+        $targitoApiServiceDefinition->setArgument('$apiUrl', $apiUrl);
+
+        foreach ($container->findTaggedServiceIds('targito_api.endpoint') as $serviceId => $tags) {
+            $endpointDefinition = $container->getDefinition($serviceId);
+            $endpointDefinition->setArgument('$apiUrl', $apiUrl);
+        }
     }
 }

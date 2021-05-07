@@ -171,4 +171,7 @@ targito_api:
     # The service that will be used as the http request (must implement Targito\Api\Http\HttpRequestInterface).
     # Defaults to null which means autodetect between default curl and stream based implementations.
     http_request:         null
+
+    # The api url (including version) to issue requests to. Can be null which means to use default.
+    api_url:              null
 ```

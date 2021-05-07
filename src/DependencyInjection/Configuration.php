@@ -46,6 +46,10 @@ class Configuration implements ConfigurationInterface
                     ->info("The service that will be used as the http request (must implement Targito\\Api\\Http\\HttpRequestInterface).\nDefaults to null which means autodetect between default curl and stream based implementations.")
                     ->defaultNull()
                 ->end()
+                ->scalarNode('api_url')
+                    ->info('The api url (including version) to issue requests to. Can be null which means to use default.')
+                    ->defaultNull()
+                ->end()
             ->end();
 
         return $treeBuilder;
